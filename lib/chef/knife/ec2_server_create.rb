@@ -39,6 +39,12 @@ class Chef
       attr_accessor :initial_sleep_delay
       attr_reader :server
 
+      option :bake,
+        :short => "-b NEW_AMI_NAME",
+        :long => "--bake NEW_AMI_NAME",
+        :description => "Name for the AMI created after the Chef run",
+        :proc => Proc.new { |f| Chef::Config[:knife][:bake] = f }
+
       option :flavor,
         :short => "-f FLAVOR",
         :long => "--flavor FLAVOR",
